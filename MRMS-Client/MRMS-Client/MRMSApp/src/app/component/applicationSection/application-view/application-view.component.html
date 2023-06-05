@@ -1,0 +1,78 @@
+
+<mat-card class="mat-elevation-z3">
+
+  <mat-card-header class="row">
+    <div class="d-flex justify-content-between">
+      <div>
+        <mat-card-title>Application</mat-card-title>
+        <mat-card-subtitle>List of Application</mat-card-subtitle>
+      </div>
+      <div>
+        <div class="right">
+          <a mat-mini-fab [routerLink]="['/application-create']">
+            <mat-icon>add</mat-icon>
+          </a>
+        </div>
+      </div>
+    </div>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="row mt-2">
+      <div class="col">
+        <mat-form-field appearance="fill" class="f-w mb-1">
+          <mat-label>Search</mat-label>
+          <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="table-wrapper">
+      <mat-table [dataSource]="dataSource" matSort>
+
+        <ng-container matColumnDef="tradeId" stickyEnd>
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Job Title</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{getTradeNames(element.tradeId)}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="applicantId" stickyEnd>
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Passsport No</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{getApplicantNames(element.applicantId)}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="agencyId" stickyEnd>
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Agency Name</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{getAgencyNames(element.agencyId)}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="applicationDate" sticky>
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Application Date</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.applicationDate}}</mat-cell>
+
+        </ng-container>
+        <ng-container matColumnDef="status">
+          <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{getStatusName(element.status)}}</mat-cell>
+        </ng-container>
+
+
+
+        <ng-container matColumnDef="actions">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>...</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <a [routerLink]="['/application-edit',element.applicationId]"><mat-icon>edit</mat-icon></a>
+            <button mat-icon-button (click)="confirmDelete(element)"><mat-icon>delete</mat-icon></button>
+          </mat-cell>
+
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="columnList"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: columnList;"></mat-row>
+
+      </mat-table>
+    </div>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20, 40]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+
+  </mat-card-content>
+</mat-card>
+
+

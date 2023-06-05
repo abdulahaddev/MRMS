@@ -1,0 +1,76 @@
+<mat-card class="mat-elevation-z3">
+  <mat-card-header>
+
+    <!--//<img mat-card-avatar src="../../../../assets/products-svgrepo-com.svg" />-->
+
+    <mat-card-title>Add Application</mat-card-title>
+    <mat-card-subtitle>Add new application  entry</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+
+    <form [formGroup]="applicationForm" class="form-container" (ngSubmit)="insert()">
+
+      <mat-form-field appearance="fill" class="f-w">
+        <mat-label>Job Title</mat-label>
+        <mat-select formControlName="tradeId">
+          <mat-option value="">None</mat-option>
+          <mat-option *ngFor="let c of trade" [value]="c.tradeId">
+            {{c.jobTitle}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="applicationForm.controls['tradeId'].hasError('required')"><strong>Job Title</strong> required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="f-w">
+        <mat-label>PasssportNo</mat-label>
+        <mat-select formControlName="applicantId">
+          <mat-option value="">None</mat-option>
+          <mat-option *ngFor="let c of applicant" [value]="c.applicantId">
+            {{c.passsportNo}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="applicationForm.controls['applicantId'].hasError('required')"><strong>PassportNo</strong> required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="f-w">
+        <mat-label>Agency Name</mat-label>
+        <mat-select formControlName="agencyId">
+          <mat-option value="">None</mat-option>
+          <mat-option *ngFor="let c of agency" [value]="c.agencyId">
+            {{c.name}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="applicationForm.controls['agencyId'].hasError('required')"><strong>Agency Name</strong> required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="f-w">
+        <mat-label>Application Date</mat-label>          
+          <input matInput formControlName="applicationDate" [matDatepicker]="picker">
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="applicationForm.controls['applicationDate'].hasError('required')"><strong>Application Date</strong> required</mat-error>
+       </mat-form-field>
+
+      <mat-form-field appearance="fill" class="f-w">
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="status">
+          <mat-option *ngFor="let is of IssueStatus" [value]="is.value">{{is.label}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="applicationForm.controls['status'].hasError('required')">
+          <strong>Status</strong> is required
+        </mat-error>
+
+      </mat-form-field>
+
+      <div class="f-w mb-1">
+        <button type="submit" mat-raised-button color="primary" [disabled]="applicationForm.invalid">Save</button>
+      </div>
+    </form>
+
+
+  </mat-card-content>
+  <mat-card-actions>
+    <a mat-flat-button [routerLink]="['/application']">Back to list</a>
+  </mat-card-actions>
+</mat-card>
+

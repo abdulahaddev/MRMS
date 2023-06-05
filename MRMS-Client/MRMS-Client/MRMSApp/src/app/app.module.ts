@@ -65,6 +65,15 @@ import { ApplicantEditComponent } from './component/applicantSection/applicant-e
 import { VisaViewComponent } from './component/visaSection/visa-view/visa-view.component';
 import { VisaCreateComponent } from './component/visaSection/visa-create/visa-create.component';
 import { VisaEditComponent } from './component/visaSection/visa-edit/visa-edit.component';
+import { ApplicationCreateComponent } from './component/applicationSection/application-create/application-create.component';
+import { ApplicationEditComponent } from './component/applicationSection/application-edit/application-edit.component';
+import { ApplicationViewComponent } from './component/applicationSection/application-view/application-view.component';
+import { ApplicationFileCreateComponent } from './component/applicationSection/application-file-create/application-file-create.component';
+import { ApplicationFileViewComponent } from './component/applicationSection/application-file-view/application-file-view.component';
+import { ApplicationFileEditComponent } from './component/applicationSection/application-file-edit/application-file-edit.component';
+import { ApplicationFileTransferCreateComponent } from './component/applicationSection/application-file-transfer-create/application-file-transfer-create.component';
+import { ApplicationFileTransferEditComponent } from './component/applicationSection/application-file-transfer-edit/application-file-transfer-edit.component';
+import { ApplicationFileTransferViewComponent } from './component/applicationSection/application-file-transfer-view/application-file-transfer-view.component';
 
 
 
@@ -118,7 +127,16 @@ import { VisaEditComponent } from './component/visaSection/visa-edit/visa-edit.c
     AgencyEditComponent,
     VisaViewComponent,
     VisaCreateComponent,
-    VisaEditComponent
+    VisaEditComponent,
+    ApplicationCreateComponent,
+    ApplicationEditComponent,
+    ApplicationViewComponent,
+    ApplicationFileCreateComponent,
+    ApplicationFileViewComponent,
+    ApplicationFileEditComponent,
+    ApplicationFileTransferCreateComponent,
+    ApplicationFileTransferEditComponent,
+    ApplicationFileTransferViewComponent
   ],
   imports: [
     BrowserModule,

@@ -62,7 +62,7 @@ export class ApplicantViewComponent {
       .subscribe(x => {
         this.agent = x;
       }, err => {
-        this.notificationSvc.message("Failed to load Applicant data!!!", "DISMISS");
+        this.notificationSvc.message("Failed to load Agent data!!!", "DISMISS");
       })
   }
 

@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using MRMS.DAL;
 using MRMS.Model.ApplicantSection;
 using MRMS.Model.DemandSection;
@@ -42,21 +41,6 @@ namespace MRMS_Final_Project.Controllers
             }
             return NotFound();
         }
-        //[HttpGet("{id}/image")]
-        //public ActionResult<Applicant> GetImageAsync(int id)
-        //{
-        //    var applicant =_applicantRepository.Get(id);
-        //    if (applicant == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    // Set the content type to the image MIME type
-        //    Response.ContentType = "image/jpeg";
-
-        //    // Return the image file content as a stream
-        //    return File(applicant.Picture, "image/jpeg");
-        //}
 
         // Insert: 
         [HttpPost]

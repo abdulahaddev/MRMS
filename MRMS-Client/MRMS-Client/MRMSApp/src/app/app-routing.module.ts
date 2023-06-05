@@ -35,6 +35,10 @@ import { VisaViewComponent } from './component/visaSection/visa-view/visa-view.c
 import { VisaCreateComponent } from './component/visaSection/visa-create/visa-create.component';
 import { VisaEditComponent } from './component/visaSection/visa-edit/visa-edit.component';
 
+import { ApplicationCreateComponent } from './component/applicationSection/application-create/application-create.component';
+import { ApplicationEditComponent } from './component/applicationSection/application-edit/application-edit.component';
+import { ApplicationViewComponent } from './component/applicationSection/application-view/application-view.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -71,13 +75,19 @@ const routes: Routes = [
   { path: 'agency-view', component: AgencyViewComponent },
   { path: 'agency-create', component: AgencyCreateComponent },
   { path: 'agency-edit/:id', component: AgencyEditComponent },
-  { path: 'applicant-edit/:id', component: ApplicantEditComponent },
+  
 
 
 
   { path: 'visa', component: VisaViewComponent },
   { path: 'visa-create', component: VisaCreateComponent },
-  { path: 'visa-edit/:id', component: VisaEditComponent }
+  { path: 'visa-edit/:id', component: VisaEditComponent },
+
+  { path: 'application', component: ApplicationViewComponent },
+  { path: 'application-create', component: ApplicationCreateComponent },
+  { path: 'application-edit/:id', component: ApplicationEditComponent }
+
+
 
 ];
 

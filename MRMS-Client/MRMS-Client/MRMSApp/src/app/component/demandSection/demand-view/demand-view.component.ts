@@ -99,7 +99,7 @@ export class DemandViewComponent {
       .subscribe(x => {
         this.company = x;
       }, err => {
-        this.notificationSvc.message("Failed to load Demand data!!!", "DISMISS");
+        this.notificationSvc.message("Failed to load Company data!!!", "DISMISS");
       });
 
     this.demandSvc.get().

@@ -30,7 +30,7 @@ namespace MRMS_Final_Project.Controllers
         public ActionResult<Visa> GetVisaByVisaId(int VisaId)
         {
             Visa visa = _visaRepo.Get(VisaId);
-            if(visa is not null)
+            if (visa is not null)
             {
                 return visa;
             }
@@ -47,7 +47,7 @@ namespace MRMS_Final_Project.Controllers
         }
 
         //Update Visa
-        [HttpPut]
+        [HttpPut("{id}")]
         public IActionResult PutVisa(Visa visa)
         {
             if (visa.VisaId == 0)
