@@ -38,6 +38,8 @@ import { RegisterComponent } from './component/Authentication/register/register.
 import { SignInComponent } from './component/Authentication/sign-in/sign-in.component';
 import { AuthGuard } from './component/auth/guards/auth.guard';
 import { DemandDetailsComponent } from './component/demandSection/demand-details/demand-details.component';
+import { SavoyViewComponent } from './component/savoy/savoy-view/savoy-view.component';
+import { SavoyCreateComponent } from './component/savoy/savoy-create/savoy-create.component';
 
 
 const routes: Routes = [
@@ -82,7 +84,8 @@ const routes: Routes = [
   { path: 'agency-edit/:id', component: AgencyEditComponent, canActivate: [AuthGuard] },
   { path: 'applicant-edit/:id', component: ApplicantEditComponent, canActivate: [AuthGuard] },
 
-
+  { path: 'savoy', component: SavoyViewComponent, canActivate: [AuthGuard] },
+  { path: 'savoy-create', component: SavoyCreateComponent, canActivate: [AuthGuard] },
 
   { path: 'visa', component: VisaViewComponent, canActivate: [AuthGuard] },
   { path: 'visa-create', component: VisaCreateComponent, canActivate: [AuthGuard] },

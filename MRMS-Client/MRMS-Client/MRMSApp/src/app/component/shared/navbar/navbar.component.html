@@ -1,10 +1,16 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
-               [opened]="false">
+  <mat-sidenav #drawer class="sidenav"
+               [opened]="false" mode="side">
    
-    <mat-toolbar color="primary">Menu</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item [routerLink]="['/home']"><mat-icon class="icon">home</mat-icon> Home</a>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <mat-label></mat-label>
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+    <mat-nav-list style="font-size: 13px;">
+      <a mat-list-item [routerLink]="['/home']"><mat-icon class="icon">home</mat-icon> Dashboard</a>
+      <a mat-list-item [routerLink]="['/savoy']"><mat-icon class="icon">home</mat-icon> Savoy</a>
 
       <a mat-list-item [routerLink]="['/company']"><mat-icon class="icon">list_alt_add</mat-icon> Company</a>
       <a mat-list-item [routerLink]="['/demand']"><mat-icon class="icon">list_alt_add</mat-icon> Demand</a>

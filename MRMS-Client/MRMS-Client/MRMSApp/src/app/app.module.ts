@@ -71,6 +71,9 @@ import { FileService } from './services/fileSection/file.service';
 import { CompanyService } from './services/common/company.service';
 import { SignInComponent } from './component/Authentication/sign-in/sign-in.component';
 import { RegisterComponent } from './component/Authentication/register/register.component';
+import { SavoyViewComponent } from './component/savoy/savoy-view/savoy-view.component';
+import { SavoyCreateComponent } from './component/savoy/savoy-create/savoy-create.component';
+import { ProductItemComponent } from './component/shared/product-item/product-item.component';
 
 
 
@@ -128,7 +131,10 @@ import { RegisterComponent } from './component/Authentication/register/register.
     SignInComponent,
     RegisterComponent,
     VisaEditComponent,
-    DemandDetailsComponent
+    DemandDetailsComponent,
+    SavoyViewComponent,
+    SavoyCreateComponent,
+    ProductItemComponent
   ],
   imports: [
     BrowserModule,
