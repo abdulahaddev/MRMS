@@ -59,4 +59,13 @@ export class SavoyCreateComponent implements OnInit {
       })
   }
 
+    updateProduct(updatedProduct: Product, index: number) {
+    // Assuming that you want to update the specific product in the array
+    this.savoyData[index] = updatedProduct;
+  }
+
+    trackByProduct(index: number, product: Product): any {
+      return product.productId;
+    }
+
 }

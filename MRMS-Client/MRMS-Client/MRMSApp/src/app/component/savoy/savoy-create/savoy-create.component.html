@@ -4,8 +4,8 @@
     <mat-card-subtitle>Add new File entry</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <div class="product-item-container" *ngFor="let product of savoyData ; let i = index">
-      <app-product-item [productData]="product"></app-product-item>
+    <div class="product-item-container" *ngFor="let product of savoyData ; let i = index; trackBy: trackByProduct">
+      <app-product-item [productData]="product" (productDataChange)="updateProduct($event, i)"></app-product-item>
     </div>
     <!-- <div class="f-w d-flex justify-content-end align-items-center mb-2 me-2">
       <button title="Add New File" type="button" mat-mini-fab >
