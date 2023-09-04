@@ -4,10 +4,10 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
-    <SpaRoot>MRMSApp\</SpaRoot>
+    <SpaRoot>RSSMApp\</SpaRoot>
     <SpaProxyServerUrl>http://localhost:44428</SpaProxyServerUrl>
     <SpaProxyLaunchCommand>npm start</SpaProxyLaunchCommand>
-    <RootNamespace>MRMS_Client</RootNamespace>
+    <RootNamespace>RSSM_Client</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
@@ -23,7 +23,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="MRMSApp\src\app\component\MedicalSection\" />
+    <None Include="RSSMApp\angular.json" />
+    <None Include="RSSMApp\package-lock.json" />
+    <None Include="RSSMApp\package.json" />
+    <None Include="RSSMApp\tsconfig.app.json" />
+    <None Include="RSSMApp\tsconfig.json" />
+    <None Include="RSSMApp\tsconfig.spec.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="RSSMApp\src\app\models\DailyDataModel\" />
   </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
