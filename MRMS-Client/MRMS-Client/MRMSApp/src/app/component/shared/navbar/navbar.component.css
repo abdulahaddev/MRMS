@@ -23,3 +23,9 @@
 .icon {
   margin-right: 15px;
 }
+.sidenav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px; /* Adjust as needed */
+}
