@@ -1,4 +1,4 @@
-export const apiUrl: string = 'http://localhost:5146/api';
-export const AuthApiUrl = 'http://localhost:5146/Authentication';
-export const baseUrl = 'http://localhost:5146';
-export const LogUrl: string = 'http://localhost:5146/api/User';
+export const apiUrl: string = 'http://103.87.215.122:4001/api';
+export const AuthApiUrl = 'http://103.87.215.122:4001/Authentication';
+export const baseUrl = 'http://103.87.215.122:4001';
+export const LogUrl: string = 'http://103.87.215.122:4001/api/User';
