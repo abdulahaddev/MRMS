@@ -1,6 +1,10 @@
-﻿using Microsoft.Extensions.Options;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using MRMS.DAL;
 using MRMS.Model.Authentication;
+using MRMS.Model.CommonSection;
+using MRMS.Model.EmployeeSection;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -9,10 +13,14 @@ namespace MRMS_Final_Project.Services
 {
     public class AuthenticateService : IAuthenticateService
     {
+       
         private readonly AppSettings _appSettings;
+
+ 
         public AuthenticateService(IOptions<AppSettings> appSettings)
         {
             _appSettings = appSettings.Value;
+         
         }
         private readonly List<User> users = new List<User>()
         {
@@ -25,6 +33,10 @@ namespace MRMS_Final_Project.Services
                 Password="admin"
             }
         };
+
+      
+
+
         public User Authenticate(string username, string password)
         {
             var user = users.SingleOrDefault(x => x.UserName == username && x.Password == password);
@@ -52,5 +64,7 @@ namespace MRMS_Final_Project.Services
             user.Password = "";
             return user;
         }
+
+
     }
 }

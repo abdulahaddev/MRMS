@@ -93,7 +93,6 @@ namespace MRMS.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("BirthCertificateNo")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DateOfBrith")
@@ -103,7 +102,6 @@ namespace MRMS.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FathersName")
@@ -434,6 +432,41 @@ namespace MRMS.DAL.Migrations
                     b.HasIndex("ApplicationIssueId");
 
                     b.ToTable("ApplicationIssueComment");
+                });
+
+            modelBuilder.Entity("MRMS.Model.Authentication.User", b =>
+                {
+                    b.Property<int>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"), 1L, 1);
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Role")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Token")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId");
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("MRMS.Model.CallingSection.Calling", b =>
@@ -788,7 +821,6 @@ namespace MRMS.DAL.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("Age")
-                        .HasMaxLength(3)
                         .HasColumnType("int");
 
                     b.Property<string>("ContractPeriod")
@@ -797,13 +829,14 @@ namespace MRMS.DAL.Migrations
                         .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("Currency")
-                        .HasColumnType("nvarchar(1)");
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
                     b.Property<int>("DemandId")
                         .HasColumnType("int");
 
                     b.Property<int>("FemaleQuota")
-                        .HasMaxLength(5)
                         .HasColumnType("int");
 
                     b.Property<string>("Food")
@@ -817,18 +850,15 @@ namespace MRMS.DAL.Migrations
                         .HasColumnType("nvarchar(150)");
 
                     b.Property<int>("MaleQuota")
-                        .HasMaxLength(5)
                         .HasColumnType("int");
 
                     b.Property<int>("OverTime")
-                        .HasMaxLength(2)
                         .HasColumnType("int");
 
                     b.Property<decimal>("Salary")
                         .HasColumnType("money");
 
                     b.Property<int>("WorkingHours")
-                        .HasMaxLength(2)
                         .HasColumnType("int");
 
                     b.HasKey("TradeId");
@@ -865,7 +895,6 @@ namespace MRMS.DAL.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EmployeeId"), 1L, 1);
 
                     b.Property<string>("BirthCertificateNo")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DateOfBrith")
@@ -878,7 +907,6 @@ namespace MRMS.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FathersName")

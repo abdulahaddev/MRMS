@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MRMS.DAL.Migrations
 {
-    public partial class MRMSContext : Migration
+    public partial class MRMS : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -117,6 +117,24 @@ namespace MRMS.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    UserId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Token = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Role = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.UserId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AgencySyndicates",
                 columns: table => new
                 {
@@ -175,8 +193,8 @@ namespace MRMS.DAL.Migrations
                     DateOfBrith = table.Column<DateTime>(type: "date", nullable: false),
                     PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     NID = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    BirthCertificateNo = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BirthCertificateNo = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Nationality = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Gender = table.Column<int>(type: "int", nullable: false),
                     Religion = table.Column<int>(type: "int", nullable: false),
@@ -305,13 +323,13 @@ namespace MRMS.DAL.Migrations
                     TradeId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     JobTitle = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
-                    MaleQuota = table.Column<int>(type: "int", maxLength: 5, nullable: false),
-                    FemaleQuota = table.Column<int>(type: "int", maxLength: 5, nullable: false),
-                    Age = table.Column<int>(type: "int", maxLength: 3, nullable: false),
+                    MaleQuota = table.Column<int>(type: "int", nullable: false),
+                    FemaleQuota = table.Column<int>(type: "int", nullable: false),
+                    Age = table.Column<int>(type: "int", nullable: false),
                     Salary = table.Column<decimal>(type: "money", nullable: false),
-                    Currency = table.Column<string>(type: "nvarchar(10)", nullable: true),
-                    WorkingHours = table.Column<int>(type: "int", maxLength: 2, nullable: false),
-                    OverTime = table.Column<int>(type: "int", maxLength: 2, nullable: false),
+                    Currency = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    WorkingHours = table.Column<int>(type: "int", nullable: false),
+                    OverTime = table.Column<int>(type: "int", nullable: false),
                     Food = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Accomodation = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     ContractPeriod = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
@@ -425,8 +443,8 @@ namespace MRMS.DAL.Migrations
                     DateOfBrith = table.Column<DateTime>(type: "date", nullable: false),
                     PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     NID = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    BirthCertificateNo = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BirthCertificateNo = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Nationality = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Gender = table.Column<int>(type: "int", nullable: false),
                     Religion = table.Column<int>(type: "int", nullable: false),
@@ -1665,6 +1683,9 @@ namespace MRMS.DAL.Migrations
 
             migrationBuilder.DropTable(
                 name: "RejectedApplicants");
+
+            migrationBuilder.DropTable(
+                name: "Users");
 
             migrationBuilder.DropTable(
                 name: "VisaFiles");

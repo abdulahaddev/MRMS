@@ -1,6 +1,7 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport
                [opened]="false">
+   
     <mat-toolbar color="primary">Menu</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item [routerLink]="['/home']"><mat-icon class="icon">home</mat-icon> Home</a>
@@ -25,18 +26,45 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
+    <!--<mat-toolbar color="primary">
+    <mat-toolbar-row> <h3>Recipe Book</h3></mat-toolbar-row>
+
+    <mat-toolbar-row>
+      <span class="spacer"></span>-->
+    <!--<button mat-raised-button color="primary" (click)="logOut()" *ngIf="isAuthenticated()">Logout</button>
+  <button mat-raised-button color="primary" routerLink="/angular-material" *ngIf="isAuthenticated()">{{displayName}}</button>-->
+    <!--</mat-toolbar-row>
+  </mat-toolbar>-->
     <mat-toolbar color="primary">
-      <button type="button"
-              aria-label="Toggle sidenav"
-              mat-icon-button
-              (click)="drawer.toggle()">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <span>{{appTitle}}</span>
-      <span class="example-spacer"></span>
-      <a mat-button style="color: white;" [routerLink]="['']">
-        Home
-      </a>
+      <mat-toolbar-row>
+        <ng-template [ngIf]="!authService.isAuthenticated()">
+          <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" disabled>
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+          </button>
+          <span>{{ appTitle }}</span>
+        </ng-template>
+        <ng-template [ngIf]="authService.isAuthenticated()">
+          <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+          </button>
+          <span>{{ appTitle }}</span>
+
+        </ng-template>
+
+        <span class="example-spacer"></span>
+        <div>
+          <ng-template [ngIf]="!authService.isAuthenticated()">
+            <button mat-raised-button color="danger" routerLink="/signin" routerLinkActive="active">LogIn</button>
+            <button mat-raised-button color="danger" routerLink="/signUp" routerLinkActive="active">Register</button>
+          </ng-template>
+        </div>
+        <div>
+          <ng-template [ngIf]="authService.isAuthenticated()">
+         
+            <button mat-raised-button color="primary" (click)="logOut()">Logout</button>
+          </ng-template>
+        </div>
+      </mat-toolbar-row>
 
     </mat-toolbar>
     <!-- Add Content Here -->

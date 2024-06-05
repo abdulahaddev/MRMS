@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Agency } from '../../../models/AgencySection/agency';
-import { AgencyService } from '../../../services/AgencySection/agency.service';
+import { AgencyService } from '../../../services/agencySection/agency.service';
 import { NotificationService } from '../../../services/Shared/notification.service';
 
 @Component({

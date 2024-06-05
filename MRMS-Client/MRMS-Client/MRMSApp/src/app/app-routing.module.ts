@@ -34,6 +34,10 @@ import { DemandIssueViewComponent } from './component/demandSection/demand-issue
 import { VisaViewComponent } from './component/visaSection/visa-view/visa-view.component';
 import { VisaCreateComponent } from './component/visaSection/visa-create/visa-create.component';
 import { VisaEditComponent } from './component/visaSection/visa-edit/visa-edit.component';
+import { RegisterComponent } from './component/Authentication/register/register.component';
+import { SignInComponent } from './component/Authentication/sign-in/sign-in.component';
+import { AuthGuard } from './component/auth/guards/auth.guard';
+import { DemandDetailsComponent } from './component/demandSection/demand-details/demand-details.component';
 
 import { ApplicationCreateComponent } from './component/applicationSection/application-create/application-create.component';
 import { ApplicationEditComponent } from './component/applicationSection/application-edit/application-edit.component';
@@ -43,45 +47,51 @@ import { ApplicationViewComponent } from './component/applicationSection/applica
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'signUp', component: RegisterComponent },
+  { path: 'signin', component: SignInComponent },
+  { path: 'demand', component: DemandViewComponent, canActivate: [AuthGuard] },
+  { path: 'demand-create', component: DemandCreateComponent, canActivate: [AuthGuard] },
+  { path: 'demand-edit/:id', component: DemandEditComponent, canActivate: [AuthGuard] },
 
+  { path: 'demandIssue', component: DemandIssueViewComponent, canActivate: [AuthGuard] },
+  { path: 'demandIssue-create', component: DemandIssueCreateComponent, canActivate: [AuthGuard] },
+  { path: 'demandIssue-edit/:id', component: DemandIssueEditComponent, canActivate: [AuthGuard] },
   { path: 'demand', component: DemandViewComponent },
   { path: 'demand-create', component: DemandCreateComponent },
   { path: 'demand-edit/:id', component: DemandEditComponent },
+  { path: 'demand-details/:id', component: DemandDetailsComponent },
 
-  { path: 'demandIssue', component: DemandIssueViewComponent },
-  { path: 'demandIssue-create', component: DemandIssueCreateComponent },
-  { path: 'demandIssue-edit/:id', component: DemandIssueEditComponent },
-
-  { path: 'trade', component: TradeViewComponent },
-  { path: 'trade-create', component: TradeCreateComponent },
-  { path: 'trade-edit/:id', component: TradeEditComponent },
-  { path: 'FileContainer', component: FileContainerComponent },
-  { path: 'medicalCenter', component: MedicalCenterViewComponent },
-  { path: 'medicalCenterCreate', component: MedicalCenterCreateComponent },
-  { path: 'medicalCenterEdit/:id', component: MedicalCenterEditComponent },
-  { path: 'demandFile',component:DemandFileCreateComponent},
-  { path: 'company', component: CompanyViewComponent },
-  { path: 'company-view', component: CompanyViewComponent },
-  { path: 'company-create', component: CompanyCreateComponent },
-  { path: 'company-edit/:id', component: CompanyEditComponent },
-  { path: 'agent', component: AgentViewComponent },
-  { path: 'agent-view', component: AgentViewComponent },
-  { path: 'agent-create', component: AgentCreateComponent },
-  { path: 'agent-edit/:id', component: AgentEditComponent },
-  { path: 'applicant', component: ApplicantViewComponent },
-  { path: 'applicant-create', component: ApplicantCreateComponent },
-  { path: 'applicant-edit/:id', component: ApplicantEditComponent },
-  { path: 'agency', component: AgencyViewComponent },
-  { path: 'agency-view', component: AgencyViewComponent },
-  { path: 'agency-create', component: AgencyCreateComponent },
-  { path: 'agency-edit/:id', component: AgencyEditComponent },
-  
+  { path: 'trade', component: TradeViewComponent, canActivate: [AuthGuard] },
+  { path: 'trade-create', component: TradeCreateComponent, canActivate: [AuthGuard] },
+  { path: 'trade-edit/:id', component: TradeEditComponent, canActivate: [AuthGuard] },
+  { path: 'FileContainer', component: FileContainerComponent, canActivate: [AuthGuard] },
+  { path: 'medicalCenter', component: MedicalCenterViewComponent, canActivate: [AuthGuard] },
+  { path: 'medicalCenterCreate', component: MedicalCenterCreateComponent, canActivate: [AuthGuard] },
+  { path: 'medicalCenterEdit/:id', component: MedicalCenterEditComponent, canActivate: [AuthGuard] },
+  { path: 'demandFile', component: DemandFileCreateComponent, canActivate: [AuthGuard] },
+  { path: 'company', component: CompanyViewComponent, canActivate: [AuthGuard] },
+  { path: 'company-view', component: CompanyViewComponent, canActivate: [AuthGuard] },
+  { path: 'company-create', component: CompanyCreateComponent, canActivate: [AuthGuard] },
+  { path: 'company-edit/:id', component: CompanyEditComponent, canActivate: [AuthGuard] },
+  { path: 'agent', component: AgentViewComponent, canActivate: [AuthGuard] },
+  { path: 'agent-view', component: AgentViewComponent, canActivate: [AuthGuard] },
+  { path: 'agent-create', component: AgentCreateComponent, canActivate: [AuthGuard] },
+  { path: 'agent-edit/:id', component: AgentEditComponent, canActivate: [AuthGuard] },
+  { path: 'applicant', component: ApplicantViewComponent, canActivate: [AuthGuard] },
+  { path: 'applicant-create', component: ApplicantCreateComponent, canActivate: [AuthGuard] },
+  { path: 'applicant-edit/:id', component: ApplicantEditComponent, canActivate: [AuthGuard] },
+  { path: 'agency', component: AgencyViewComponent, canActivate: [AuthGuard] },
+  { path: 'agency-view', component: AgencyViewComponent, canActivate: [AuthGuard] },
+  { path: 'agency-create', component: AgencyCreateComponent, canActivate: [AuthGuard] },
+  { path: 'agency-edit/:id', component: AgencyEditComponent, canActivate: [AuthGuard] },
+  { path: 'applicant-edit/:id', component: ApplicantEditComponent, canActivate: [AuthGuard] },
 
 
 
-  { path: 'visa', component: VisaViewComponent },
-  { path: 'visa-create', component: VisaCreateComponent },
-  { path: 'visa-edit/:id', component: VisaEditComponent },
+  { path: 'visa', component: VisaViewComponent, canActivate: [AuthGuard] },
+  { path: 'visa-create', component: VisaCreateComponent, canActivate: [AuthGuard] },
+  { path: 'visa-edit/:id', component: VisaEditComponent, canActivate: [AuthGuard] }
+
 
   { path: 'application', component: ApplicationViewComponent },
   { path: 'application-create', component: ApplicationCreateComponent },

@@ -110,7 +110,7 @@ export class DemandViewComponent {
           x.companyName = this.getCompanyName(id);
         });
         this.demand = x;
-        console.log(x);
+        //console.log(x);
         this.dataSource.data = this.demand;
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;

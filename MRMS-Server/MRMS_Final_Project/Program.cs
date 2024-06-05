@@ -42,6 +42,8 @@ builder.Services.AddAuthentication(au =>
 });
 builder.Services.AddScoped<IAuthenticateService, AuthenticateService>();
 
+
+
 builder.Services.AddControllers(
 options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
 
@@ -54,6 +56,9 @@ builder.Services.AddDbContext<MRMSDBContext>(options =>
 
 //builder.Services.AddScoped<IGlobalRepository, GlobalRepository>();
 builder.Services.AddScoped(typeof(IGlobalRepository), typeof(GlobalRepository));
+
+builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
+builder.Services.AddSingleton<AppSettings>();
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

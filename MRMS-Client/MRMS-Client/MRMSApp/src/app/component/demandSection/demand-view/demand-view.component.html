@@ -32,7 +32,7 @@
           <input matInput
                  (dateChange)="filterDate($event.value)"
                  [matDatepicker]="picker">
-           <mat-hint>MM/DD/YYYY</mat-hint> 
+           <mat-hint>MM/DD/YYYY</mat-hint>
           <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
@@ -70,10 +70,11 @@
         <mat-cell *matCellDef="let element">{{getCompanyName(element.companyId)}}</mat-cell>
       </ng-container>
       <ng-container matColumnDef="actions" class="action">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>...</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Action</mat-header-cell>
         <mat-cell *matCellDef="let element" class="action">
           <a [routerLink]="['/demand-edit',element.demandId]"><mat-icon>edit</mat-icon></a>
           <button mat-icon-button (click)="confirmDelete(element)"><mat-icon class="red-color">delete</mat-icon></button>
+          <a [routerLink]="['/demand-details',element.demandId]"><mat-icon color="primary">visibility</mat-icon></a>
         </mat-cell>
 
       </ng-container>

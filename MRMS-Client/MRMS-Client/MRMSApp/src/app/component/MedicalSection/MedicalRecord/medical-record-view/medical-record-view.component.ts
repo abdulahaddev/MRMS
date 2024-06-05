@@ -4,8 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { throwError } from 'rxjs';
-import { AgencySyndicateService } from 'src/app/services/AgencySection/agency-syndicate.service';
-import { AgencyService } from 'src/app/services/AgencySection/agency.service';
+
 import { Agency } from '../../../../models/AgencySection/agency';
 import { AgencySyndicate } from '../../../../models/AgencySection/agency-syndicate';
 import { Applicant } from '../../../../models/ApplicantSection/applicant';
@@ -13,6 +12,8 @@ import { Demand } from '../../../../models/demandSection/demand';
 import { MedicalCenter } from '../../../../models/MedicalSection/medical-center';
 import { MedicalRecord } from '../../../../models/MedicalSection/medical-record';
 import { medicalStatus } from '../../../../models/shared/enum-list';
+import { AgencySyndicateService } from '../../../../services/agencySection/agency-syndicate.service';
+import { AgencyService } from '../../../../services/agencySection/agency.service';
 import { ApplicantService } from '../../../../services/ApplicantSection/applicant.service';
 import { DemandService } from '../../../../services/demandSection/demand.service';
 import { MedicalCenterService } from '../../../../services/MedicalSection/medical-center.service';
@@ -127,18 +128,18 @@ export class MedicalRecordViewComponent {
       }, err => {
         this.notificationSvc.message("Failed to load Demand data!!!", "DISMISS");
       });
-    this.agencySvc.get()
-      .subscribe(x => {
-        this.agency = x;
-      }, err => {
-        this.notificationSvc.message("Failed to load Agency data!!!", "DISMISS");
-      });
-    this.agecySyndicateSvc.get()
-      .subscribe(x => {
-        this.agencySyndicate = x;
-      }, err => {
-        this.notificationSvc.message("Failed to load AgencySyndicate data!!!", "DISMISS");
-      });
+    //this.agencySvc.get()
+    //  .subscribe(x => {
+    //    this.agency = x;
+    //  }, err => {
+    //    this.notificationSvc.message("Failed to load Agency data!!!", "DISMISS");
+    //  });
+    //this.agecySyndicateSvc.get()
+    //  .subscribe(x => {
+    //    this.agencySyndicate = x;
+    //  }, err => {
+    //    this.notificationSvc.message("Failed to load AgencySyndicate data!!!", "DISMISS");
+    //  });
 
     this.medicalRecSvc.get().
       subscribe(x => {

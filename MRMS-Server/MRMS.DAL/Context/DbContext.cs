@@ -2,6 +2,7 @@
 using MRMS.Model.AgencySection;
 using MRMS.Model.ApplicantSection;
 using MRMS.Model.ApplicationSection;
+using MRMS.Model.Authentication;
 using MRMS.Model.CallingSection;
 using MRMS.Model.CommonSection;
 using MRMS.Model.DemandSection;
@@ -78,5 +79,7 @@ namespace MRMS.DAL.Context
         public DbSet<FlightIssue> FlightIssues { get; set; } = default!;
 
         public DbSet<RejectedApplicant> RejectedApplicants { get; set; } = default!;
+
+        public DbSet<User> Users { get; set; } = default!;
     }
 }

@@ -72,7 +72,7 @@ export class CompanyViewComponent {
   ngOnInit(): void {
     this.countrySvc.get()
      .subscribe(x => {
-       console.log(x);
+       //console.log(x);
        this.country = x;
      }, err => {
        this.notificationSvc.message("Failed to load country data!!!", "DISMISS");
@@ -81,7 +81,7 @@ export class CompanyViewComponent {
     this.companySvc.get()
       .subscribe(x => {
         this.company = x;
-        console.log(this.company);
+        //console.log(this.company);
         this.dataSource.data = this.company;
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;

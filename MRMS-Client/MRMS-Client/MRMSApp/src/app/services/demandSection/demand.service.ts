@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Demand } from '../../models/demandSection/demand';
 import { apiUrl } from '../../models/shared/app-constants';
+import { FileInfo } from 'src/app/models/common/file-info';
+import { DemandFile } from 'src/app/models/demandSection/demand-file';
 
 @Injectable({
   providedIn: 'root'
@@ -27,5 +29,18 @@ export class DemandService {
   }
   delete(data: Demand): Observable<any> {
     return this.http.delete<any>(`${apiUrl}/Demands/${data.demandId}`);
+  }
+
+  // ---------------------------
+  getFiles(): Observable<DemandFile[]> {
+    return this.http.get<DemandFile[]>(`${apiUrl}/DemadFiles`);
+  }
+
+  getFileById(id: number): Observable<DemandFile> {
+    return this.http.get<DemandFile>(`${apiUrl}/DemadFiles/${id}`);
+  }
+
+  deleteFile(data: FileInfo): Observable<DemandFile> {
+    return this.http.delete<any>(`${apiUrl}/DemadFiles/${data.fileId}`);
   }
 }

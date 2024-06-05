@@ -5,7 +5,8 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { throwError } from 'rxjs';
 import { Agency } from '../../../models/AgencySection/agency';
-import { AgencyService } from '../../../services/AgencySection/agency.service';
+import { AgencyService } from '../../../services/agencySection/agency.service';
+
 
 import { NotificationService } from '../../../services/Shared/notification.service';
 import { ConfirmDialogComponent } from '../../shared/confirm-dialog/confirm-dialog.component';

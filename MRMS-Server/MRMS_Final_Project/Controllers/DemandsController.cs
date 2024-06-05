@@ -7,7 +7,6 @@ namespace MRMS_Final_Project.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class DemandsController : ControllerBase
     {
 
@@ -29,7 +28,7 @@ namespace MRMS_Final_Project.Controllers
 
         //Get Demand By Id
         [HttpGet("{id}")]
-        public ActionResult<Demand> GetDemandById(int id)
+        public ActionResult<dynamic> GetDemandById(int id)
         {
             Demand demand = _demandRepo.Get(id);
 
@@ -37,8 +36,8 @@ namespace MRMS_Final_Project.Controllers
             {
                 return NotFound();
             }
-            return demand;
 
+            return demand;
         }
 
         [HttpPost]

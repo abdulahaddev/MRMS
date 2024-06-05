@@ -22,6 +22,7 @@ import { AgencyEditComponent } from './component/agency-section/agency-edit/agen
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatModule } from './module/shared/mat/mat.module';
+import { MatTabsModule } from '@angular/material/tabs'
 import { ConfirmDialogComponent } from './component/shared/confirm-dialog/confirm-dialog.component';
 import { HomeComponent } from './component/home/home.component';
 import { AuthInterceptor } from './Shared/authconfig.interceptor';
@@ -65,6 +66,11 @@ import { ApplicantEditComponent } from './component/applicantSection/applicant-e
 import { VisaViewComponent } from './component/visaSection/visa-view/visa-view.component';
 import { VisaCreateComponent } from './component/visaSection/visa-create/visa-create.component';
 import { VisaEditComponent } from './component/visaSection/visa-edit/visa-edit.component';
+import { DemandDetailsComponent } from './component/demandSection/demand-details/demand-details.component';
+import { FileService } from './services/fileSection/file.service';
+import { CompanyService } from './services/common/company.service';
+import { SignInComponent } from './component/Authentication/sign-in/sign-in.component';
+import { RegisterComponent } from './component/Authentication/register/register.component';
 import { ApplicationCreateComponent } from './component/applicationSection/application-create/application-create.component';
 import { ApplicationEditComponent } from './component/applicationSection/application-edit/application-edit.component';
 import { ApplicationViewComponent } from './component/applicationSection/application-view/application-view.component';
@@ -79,7 +85,7 @@ import { ApplicationFileTransferViewComponent } from './component/applicationSec
 
 @NgModule({
   declarations: [
-    AppComponent,  
+    AppComponent,
     DemandCreateComponent,
     DemandViewComponent,
     DemandEditComponent,
@@ -128,6 +134,11 @@ import { ApplicationFileTransferViewComponent } from './component/applicationSec
     VisaViewComponent,
     VisaCreateComponent,
     VisaEditComponent,
+    SignInComponent,
+    RegisterComponent,
+    VisaEditComponent,
+    DemandDetailsComponent,
+    VisaEditComponent,
     ApplicationCreateComponent,
     ApplicationEditComponent,
     ApplicationViewComponent,
@@ -147,6 +158,7 @@ import { ApplicationFileTransferViewComponent } from './component/applicationSec
     ReactiveFormsModule,
     LayoutModule,
     MatModule,
+    MatTabsModule,
     FormsModule
   ],
   providers: [
@@ -155,6 +167,8 @@ import { ApplicationFileTransferViewComponent } from './component/applicationSec
     TradeService,
     NotificationService,
     AgentService,
+    FileService,
+    CompanyService,
     DatePipe,
     {
       provide: HTTP_INTERCEPTORS,

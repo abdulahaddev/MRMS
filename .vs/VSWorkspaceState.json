@@ -1,7 +1,15 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\MRMS-Client",
+    "\\MRMS-Client\\MRMS-Client",
+    "\\MRMS-Client\\MRMS-Client\\MRMSApp",
+    "\\MRMS-Client\\MRMS-Client\\MRMSApp\\src",
+    "\\MRMS-Client\\MRMS-Client\\MRMSApp\\src\\app",
+    "\\MRMS-Client\\MRMS-Client\\MRMSApp\\src\\app\\component",
+    "\\MRMS-Client\\MRMS-Client\\MRMSApp\\src\\app\\component\\demandSection",
+    "\\MRMS-Client\\MRMS-Client\\MRMSApp\\src\\app\\component\\demandSection\\demand-details"
   ],
-  "SelectedNode": "\\MRMS-Client.sln",
+  "SelectedNode": "\\MRMS-Client\\MRMS-Client\\MRMSApp",
   "PreviewInSolutionExplorer": false
 }

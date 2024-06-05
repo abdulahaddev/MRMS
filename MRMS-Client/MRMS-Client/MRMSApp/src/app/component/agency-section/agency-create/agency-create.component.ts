@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Agency } from '../../../models/AgencySection/agency';
-import { AgencyService } from '../../../services/AgencySection/agency.service';
+import { AgencyService } from '../../../services/agencySection/agency.service';
+
 import { NotificationService } from '../../../services/Shared/notification.service';
 
 @Component({
@@ -55,11 +56,11 @@ export class AgencyCreateComponent {
       })
   }
   ngOnInit(): void {
-    //this.agencySvc.get()
-    //  .subscribe(r => {
-    //    this.agency = r;
-    //  }, err => {
-    //    this.notificationSvc.message("Failed to load agency", "DISMISS");
-    //  })
+    this.agencySvc.get()
+      .subscribe(r => {
+       // this.agency = r;
+      }, err => {
+        this.notificationSvc.message("Failed to load agency", "DISMISS");
+      })
   }
 }
