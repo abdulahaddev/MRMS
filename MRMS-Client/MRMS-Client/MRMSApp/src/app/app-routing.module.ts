@@ -45,7 +45,7 @@ import { ApplicationViewComponent } from './component/applicationSection/applica
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: SignInComponent },
   { path: 'home', component: HomeComponent },
   { path: 'signUp', component: RegisterComponent },
   { path: 'signin', component: SignInComponent },

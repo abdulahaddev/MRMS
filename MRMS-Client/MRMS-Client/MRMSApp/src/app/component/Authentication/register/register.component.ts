@@ -36,7 +36,7 @@ export class RegisterComponent {
         next: (response => {
           this.notifyService.message(`Successfully logged in as ${this.signupForm.value.email}`, 'DISMISS');
           this.signupForm.reset();
-          this.router.navigate(['login']);
+          this.router.navigate(['signin']);
         }),
         error: err => {
           this.notifyService.message('Failed to save data', 'DISMISS');
